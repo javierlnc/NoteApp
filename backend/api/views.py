@@ -1,10 +1,11 @@
 from django.shortcuts import render
-from rest_framework.generics import GenericAPIView
+from rest_framework.generics import GenericAPIView, ListCreateAPIView, DestroyAPIView
 from rest_framework.permissions import AllowAny, IsAuthenticated
 from .serializers import *
 from rest_framework_simplejwt.tokens import RefreshToken
 from rest_framework.response import Response
 from rest_framework import status
+from .models import Note
 
 # Create your views here.
 
@@ -53,4 +54,25 @@ class UserLogoutAPIView(GenericAPIView):
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
+class NotesAPIView(ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = NotesSerializer
+    
+    def get_queryset(self):
+        user = self.request.user
+        return Note.objects.filter(author=user)
+    
+    def perform_create(self, serializer):
+        if serializer.is_valid():
+            serializer.save(author=self.request.user)
+        else:
+            return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+        
+class NoteDeleteAPIView(DestroyAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = NotesSerializer
+    
+    def get_queryset(self):
+        user = self.request.user
+        return Note.objects.filter(author=user)
     
