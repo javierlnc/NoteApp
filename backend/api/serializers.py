@@ -1,6 +1,7 @@
-from .models import CustomUser
+from .models import CustomUser, Notes
 from rest_framework import serializers
 from django.contrib.auth import authenticate
+
 
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
@@ -43,6 +44,12 @@ class UserLoginSerializer(serializers.Serializer):
             return user
         raise serializers.ValidationError("Incorrect Credentials")
     
-
+class NotesSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Notes
+        fields = ['id', 'title', 'content', 'created_at', 'author']
+        extra_kwargs = {"author": {"read_only": True}}
+        
+  
   
    
