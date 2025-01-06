@@ -1,4 +1,4 @@
-import { createApi fetchBaseQuery } from "@reduxjs/toolkit/query";
+import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import type {
   BaseQueryFn,
   FetchArgs,
@@ -52,5 +52,5 @@ const baseQueryWithReauth: BaseQueryFn<
 export const apiSlice = createApi({
     reducerPath: 'api',
     baseQuery: baseQueryWithReauth,
-    endpoints: builder => ({})
+    endpoints: (builder) => ({}),
 })
