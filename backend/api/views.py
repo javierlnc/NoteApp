@@ -54,7 +54,7 @@ class UserLogoutAPIView(GenericAPIView):
         except Exception as e:
             return Response(status=status.HTTP_400_BAD_REQUEST)
         
-class NotesAPIView(ListCreateAPIView):
+class NoteListCreateAPIView(ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = NotesSerializer
     

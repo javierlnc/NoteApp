@@ -7,4 +7,6 @@ urlpatterns = [
     path('login/', UserLoginAPIView.as_view(), name='login'),
     path('logout/', UserLogoutAPIView.as_view(), name='logout'),
     path('token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('notes/', NoteListCreateAPIView.as_view(), name='notes'),
+    path('notes/delete/<int:pk>/',NoteDeleteAPIView.as_view, name='note-delete'),
 ]
