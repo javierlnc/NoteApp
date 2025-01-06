@@ -54,10 +54,10 @@ const Navbar: NextPage = ({}) => {
           </Link>
         </div>
         <div className="hidden gap-2 md:flex">
-          <Link href={"/"} className="Navbar__nav-link">
+          <Link href={"/auth/login"} className="Navbar__nav-link">
             Login
           </Link>
-          <Link href={"/"} className="Navbar__nav-link">
+          <Link href={"/auth/register"} className="Navbar__nav-link">
             Register
           </Link>
           <Link href={"/"} className="Navbar__nav-link">
