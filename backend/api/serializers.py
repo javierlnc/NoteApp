@@ -1,4 +1,4 @@
-from .models import CustomUser, Notes
+from .models import CustomUser, Note
 from rest_framework import serializers
 from django.contrib.auth import authenticate
 
@@ -46,7 +46,7 @@ class UserLoginSerializer(serializers.Serializer):
     
 class NotesSerializer(serializers.ModelSerializer):
     class Meta:
-        model = Notes
+        model = Note
         fields = ['id', 'title', 'content', 'created_at', 'author']
         extra_kwargs = {"author": {"read_only": True}}
         
