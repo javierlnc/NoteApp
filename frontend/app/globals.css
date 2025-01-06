@@ -2,4 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.Navbar__nav-link{
+    @apply text-dark-grayish font-medium text-base;
+}

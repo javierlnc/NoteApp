@@ -14,47 +14,55 @@ const Navbar: NextPage = ({}) => {
             <Image src={"/icon-menu.svg"} alt="menu" width={24} height={24} />
           </MenuButton>
           <MenuItems
-          transition
-          anchor="bottom end"
+            transition
+            anchor="bottom end"
             className={
-              "flex flex-col w-40 min-h-screen origin-right rounded-lg shadow-lg p-1 text-sm/6 transition duration-500 ease-out [--anchor-gap:var(--spacing-1)]"
+              "flex flex-col gap-3 p-8 w-40 min-h-screen origin-right rounded-lg shadow-lg text-sm/6 transition duration-500 ease-out [--anchor-gap:var(--spacing-1)]"
             }
           >
             <MenuItem>
-              <Link href={"/"}>Collections</Link>
+            <Link href={"/"} className="Navbar__nav-link">
+            Login
+          </Link>
             </MenuItem>
             <MenuItem>
-              <Link href={"/"}>Men</Link>
+            <Link href={"/"} className="Navbar__nav-link">
+            Register
+          </Link>
             </MenuItem>
             <MenuItem>
-              <Link href={"/"}>Women</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href={"/"}>About</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link href={"/"}>Contac</Link>
+            <Link href={"/"} className="Navbar__nav-link">
+            About
+          </Link>
             </MenuItem>
           </MenuItems>
         </Menu>
         <div>
-          <Image
-            src="/icon-notes.svg"
-            alt="Notes logo"
-            width={40}
-            height={40}
-            className="object-contain"
-          />
+          <Link href="/">
+            <div className="flex items-center">
+              <Image
+                src="/icon-notes.svg"
+                alt="Notes logo"
+                width={30}
+                height={30}
+                className="object-contain"
+              />
+              <span className=" ml-1 font-semibold text-[24px] text-black">
+                NoteApp
+              </span>
+            </div>
+          </Link>
         </div>
-        <div className="hidden md:flex">
-          <Link href={"/"}>Collections</Link>
-          <Link href={"/"}>Men</Link>
-          <Link href={"/"}>Women</Link>
-          <Link href={"/"}>About</Link>
-          <Link href={"/"}>Contac</Link>
-        </div>
-        <div>
-
+        <div className="hidden gap-2 md:flex">
+          <Link href={"/"} className="Navbar__nav-link">
+            Login
+          </Link>
+          <Link href={"/"} className="Navbar__nav-link">
+            Register
+          </Link>
+          <Link href={"/"} className="Navbar__nav-link">
+            About
+          </Link>
         </div>
       </nav>
     </header>
