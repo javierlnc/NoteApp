@@ -24,7 +24,7 @@ export default function useLogin() {
     login(formData)
       .unwrap()
       .then(() => {
-        toast.success("Registration successful! Welcome aboard.", {
+        toast.success("Welcome aboard.", {
           duration: 4000,
           progress: true,
           position: "top-center",
@@ -32,10 +32,10 @@ export default function useLogin() {
           icon: "",
           sonido: true,
         });
-        router.push("/auth/login");
+        router.push("/dashboard");
       })
       .catch(() => {
-        toast.error("Registration failed. Please try again later.", {
+        toast.error("Login failed. Please try again later.", {
           duration: 4000,
           progress: true,
           position: "top-center",

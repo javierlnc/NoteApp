@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Page() {
 
   return (
-    <div className="flex min-h-full flex-1 flex-col px-6 py-12 lg:px-8">
+    <div className="flex min-h-full justify-items-center justify-center flex-1 flex-col px-6 py-12 lg:px-8">
       <div className="sm:mx-auto sm:w-full sm:max-w-sm">
         <Image
           src="/icon-notes.svg"
