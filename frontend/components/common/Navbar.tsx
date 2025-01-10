@@ -5,7 +5,7 @@ import { Menu, MenuButton, MenuItem, MenuItems } from "@headlessui/react";
 
 const Navbar: NextPage = ({}) => {
   return (
-    <header className="w-full  absolute z-10 ">
+    <header className="w-full">
       <nav className="max-w-[1440px] border-b-2 border-grayish mx-auto flex justify-between sm:px-16 px-6 py-4">
         <Menu>
           <MenuButton
