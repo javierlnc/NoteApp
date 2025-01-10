@@ -5,10 +5,9 @@ from django.contrib.auth.models import AbstractUser
 
 class CustomUser(AbstractUser):
     email = models.EmailField(unique=True)
-    numberid = models.CharField(max_length=100, unique=True)
     username = models.CharField(max_length=100, unique=True)
-    REQUIRED_FIELDS = ['email', 'username', 'first_name', 'last_name']
-    USERNAME_FIELD = 'numberid'
+    REQUIRED_FIELDS = ['first_name', 'last_name',]
+    USERNAME_FIELD = 'email'
     
     def __str__(self):
         return self.numberid

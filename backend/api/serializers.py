@@ -6,36 +6,37 @@ from django.contrib.auth import authenticate
 class CustomUserSerializer(serializers.ModelSerializer):
     class Meta:
         model = CustomUser
-        fields = ['id','numberid', 'username', 'email', 'first_name', 'last_name']
+        fields = ['id', 'email', 'first_name', 'last_name']
         
         
 class UserRegistrationSerializar(serializers.ModelSerializer):
      
-    password1 = serializers.CharField(write_only=True)
-    password2 = serializers.CharField(write_only=True)
+    password = serializers.CharField(write_only=True)
+    re_password = serializers.CharField(write_only=True)
      
     class Meta:
         model = CustomUser
-        fields = ['id','numberid', 'username', 'email', 'first_name', 'last_name', 'password1', 'password2']
+        fields = ['id', 'email', 'first_name', 'last_name', 'password', 're_password']
         extra_kwargs = {"password": {"write_only": True}}
         
     def validate(self, attrs):
-        if attrs['password1'] != attrs['password2']:
+        if attrs['password'] != attrs['re_password']:
             raise serializers.ValidationError({"password": "Password fields didn't match"})
         
-        password = attrs.get('password1')
+        password = attrs.get('password')
         if len(password) < 8:
             raise serializers.ValidationError({"password": "Password must be at least 8 characters"})
         return attrs
     
     def create(self, validated_data):
-        password = validated_data.pop('password1')
-        validated_data.pop('password2')
+        username = validated_data.pop('email')
+        password = validated_data.pop('password')
+        validated_data.pop('re_password')
         
-        return CustomUser.objects.create_user(password=password, **validated_data)
+        return CustomUser.objects.create_user(username=username,email=username,password=password, **validated_data)
     
 class UserLoginSerializer(serializers.Serializer):
-    numberid = serializers.CharField()
+    email = serializers.CharField()
     password = serializers.CharField(write_only=True)
     
     def validate(self, attrs):

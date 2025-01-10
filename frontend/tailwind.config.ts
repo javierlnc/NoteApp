@@ -11,7 +11,10 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
-        'orange' : "#ff7d1a",
+        orange: {
+          DEFAULT: "#ff7d1a",
+          focus: "#ff9e3a",
+        },
         'palo-orange':"#ffede0",
         'dark-blue':"#1d2025",
         'dark-grayish': '#68707d',
