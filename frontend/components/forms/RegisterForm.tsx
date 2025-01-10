@@ -5,12 +5,12 @@ import { useRouter } from "next/navigation";
 import { Spinner } from "../common";
 import { toast } from "nextjs-toast-notify";
 import "nextjs-toast-notify/dist/nextjs-toast-notify.css";
-
+import { FormData } from "@/types";
 const RegisterForm = () => {
   const router = useRouter();
   const [register, { isLoading }] = useRegisterMutation();
 
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<FormData>({
     first_name: "",
     last_name: "",
     email: "",
@@ -36,7 +36,7 @@ const RegisterForm = () => {
           icon: "",
           sonido: true,
         });
-        router.push("/auth(login");
+        router.push("/auth/login");
       })
       .catch(() => {
         toast.error("Registration failed. Please try again later.", {
@@ -63,7 +63,7 @@ const RegisterForm = () => {
             type={type}
             name={name}
             id={name}
-            value={formData[name]}
+            value={formData[name as keyof FormData]}
             onChange={handleChange}
             className="form__input-field peer"
             placeholder=" "
