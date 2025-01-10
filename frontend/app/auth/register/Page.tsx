@@ -1,6 +1,7 @@
 "use client";
 import Image from "next/image";
 import RegisterForm from "@/components/forms/RegisterForm";
+import Link from "next/link";
 export default function Page() {
 
   return (
@@ -20,6 +21,13 @@ export default function Page() {
       <div>
        <RegisterForm/>
       </div>
+      <p className="mt-10 text-center text-sm text-black">
+        Already have an account?
+        <Link href={'/auth/login'} className="font-bold leading-6 hover:text-orange">
+        Login Here
+        </Link>
+
+      </p>
     </div>
   );
 }

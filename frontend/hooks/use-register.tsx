@@ -15,6 +15,7 @@ export default function useRegister() {
     password: "",
     re_password: "",
   });
+  const { first_name, last_name, email, password, re_password } = formData;
 
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const { name, value } = event.target;
@@ -48,7 +49,11 @@ export default function useRegister() {
       });
   };
   return {
-    formData,
+    first_name,
+    last_name,
+    email,
+    password,
+    re_password,
     isLoading,
     handleChange,
     handleSubmit,

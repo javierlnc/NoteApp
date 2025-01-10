@@ -5,3 +5,7 @@ export interface FormData {
     password: string;
     re_password: string;
   }
+  export interface LoginFormData{
+    email: string;
+    password: string;
+  }
