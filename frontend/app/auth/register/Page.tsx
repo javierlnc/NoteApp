@@ -22,7 +22,7 @@ export default function Page() {
        <RegisterForm/>
       </div>
       <p className="mt-10 text-center text-sm text-black">
-        Already have an account?
+        Already have an account?{' '}
         <Link href={'/auth/login'} className="font-bold leading-6 hover:text-orange">
         Login Here
         </Link>

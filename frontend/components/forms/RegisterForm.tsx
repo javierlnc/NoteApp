@@ -3,7 +3,7 @@
 import { Spinner } from "../common";
 import "nextjs-toast-notify/dist/nextjs-toast-notify.css";
 import { useRegister } from "@/hooks";
-import Input from "./Input";
+import {Input} from "../common";
 
 const RegisterForm = () => {
   const {
